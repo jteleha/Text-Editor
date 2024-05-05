@@ -1,18 +1,21 @@
 {
   "name": "JATE",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "Just Another Text Editor",
+  "main": "server/server.js",
   "scripts": {
-    "start:dev": "",
-    "start": "",
-    "server": "",
-    "build": "",
-    "install": "",
-    "client": ""
+    "start:dev": "concurrently \"npm run server --prefix server\" \"npm run dev --prefix client\"",
+    "start": "node server/server.js",
+    "server": "nodemon server/server.js --ignore client",
+    "build": "npm run build --prefix client",
+    "client": "npm start --prefix client",
+    "install": "cd client && npm install && cd ../server && npm install"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "text-editor",
+    "web-app"
+  ],
+  "author": "Joel Teleha",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
